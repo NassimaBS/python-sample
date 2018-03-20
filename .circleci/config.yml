@@ -23,15 +23,16 @@ jobs:
           key: deps1-{{ .Branch }}-{{ checksum "requirements.txt" }}
       - run:
           command: |
-            pip install pipenv
-            pipenv install
+            virtualenv venv 
+            . venv/bin/activate
+            pip install -r requirements.txt
       - save_cache:
           key: deps1-{{ .Branch }}-{{ checksum "requirements.txt" }}
           paths:
             - ".venv"
       - run:
           command: |
-            pipenv run "python test.py"
+            venv run "python test.py"
       - store_test_results:
           path: test-results
       - store_artifacts:
