@@ -20,13 +20,13 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: v3-requirements-{{ arch }}-{{ checksum "requirements.txt" }}
+          key: deps1-{{ .Branch }}-{{ checksum "requirements.txt" }}
       - run:
           command: |
             pip install pipenv
             pipenv install
       - save_cache:
-          key: v3-requirements-{{ arch }}-{{ checksum "requirements.txt" }}
+          key: deps1-{{ .Branch }}-{{ checksum "requirements.txt" }}
           paths:
             - ".venv"
       - run:
