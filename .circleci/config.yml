@@ -32,7 +32,7 @@ jobs:
             - ".venv"
       - run:
           command: |
-            venv run "python test.py"
+            python test.py
       - store_test_results:
           path: test-results
       - store_artifacts:
