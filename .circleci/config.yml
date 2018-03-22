@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
    
-      - image: circleci/python:2.7.14-jessie-browsers
+      - image: python:2.7.14-alpine3.7
 
     working_directory: ~/python-sample
 
@@ -22,6 +22,7 @@ jobs:
       - run:
           name: Install requirements
           command: |
+            pip install lxml==3.6.0
             pip install -r requirements.txt
 
       - save_cache:
