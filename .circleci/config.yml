@@ -8,7 +8,6 @@ jobs:
     docker:
    
       - image: python:2.7.14-alpine3.7
-    command: /bin/sh
 
     working_directory: ~/python-sample
 
