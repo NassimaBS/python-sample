@@ -22,17 +22,17 @@ jobs:
       - run:
           name: Install requirements
           command: |
-            RUN pip install -r requirements.txt
+            pip install -r requirements.txt
 
       - save_cache:
           key: deps1-{{ checksum "requirements.txt" }}
           paths:
             - ~/.cache/pip
 
-      - run:
-          name: Validate Yaml inputs
-          command: |
-            python test.py
+      #- run:
+      #    name: Validate Yaml inputs
+      #    command: |
+      #      python test.py
             
       - store_test_results:
           path: test-reports
